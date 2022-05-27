@@ -1,0 +1,659 @@
+# factorial
+import scala.io.StdIn.readLine
+
+object Factorial {
+    def main(args: Array[String])={
+        var num = readLine("Enter number\n").toInt
+        var fact: Int = 1
+        for (i<- 1 to num){
+            fact *= i;
+        }
+        printf("Factorial = %d", fact);
+    }
+}
+
+#evenodd
+import scala.io.StdIn.readLine
+
+object EvenOdd {
+    def main(args: Array[String])={
+        var num = readLine("Enter number\n").toInt
+        if (num % 2 == 0){
+            printf("%d is Even", num);
+        }
+        else{
+            printf("%d is Odd", num);
+        }
+    }
+}
+
+
+#area of square and circle
+import scala.io.StdIn.readLine
+
+object Area {
+    def main(args: Array[String])={
+        var radius = readLine("Enter radius\n").toFloat
+        var areaOfCircle: Double = 3.14 * radius * radius
+        var length = readLine("Enter length of square\n").toFloat
+        var areaOfSquare: Float = length * length
+        printf("Area of Circle with radius %f is %f\n", radius, areaOfCircle);
+        printf("Area of Square with length %f is %f\n", length, areaOfSquare)
+    }
+}
+
+#calculator
+import scala.io.StdIn.readLine
+
+object Area {
+    def main(args: Array[String])={
+        var radius = readLine("Enter radius\n").toFloat
+        var areaOfCircle: Double = 3.14 * radius * radius
+        var length = readLine("Enter length of square\n").toFloat
+        var areaOfSquare: Float = length * length
+        printf("Area of Circle with radius %f is %f\n", radius, areaOfCircle);
+        printf("Area of Square with length %f is %f\n", length, areaOfSquare)
+    }
+}
+
+
+#pattern
+object Pattern {
+    def main(args: Array[String])={
+
+        for (i<- 1 to 5){
+            for (j<- 1 to i){
+                printf("*");
+            }
+            println();
+        }
+    }
+}
+
+
+# recursion factorial
+import scala.io.StdIn.readLine
+
+object RecursionFactorial {
+
+    def fact(x: Int): Int={
+        if (x == 1){
+          return  1
+        }
+        else{
+          return x * fact(x-1)
+        }
+    }
+
+    def main(args: Array[String])={
+        var num = readLine("Enter number\n").toInt
+        println(fact(num))
+    }
+}
+
+# vowel count
+import scala.io.StdIn.readLine
+
+object VowelCount {
+    def main(args: Array[String])={
+        var word = readLine("Enter a word\n").toCharArray
+        var count = 0
+        for (i<-word){
+            if (i == 'A' || i == 'a' || i == 'E' || i == 'e' || i == 'I' || i == 'i' || i == 'O' || i == 'o' || i == 'U' || i == 'u') {
+              count += 1
+            }
+        }
+      printf("Vowel Count: %d", count)
+    }
+}
+
+
+-----------------
+
+
+# Armstrong
+package Set3
+import scala.io.StdIn.readLine
+
+object Armstrong {
+
+    def main(args: Array[String])={
+
+        var num: Int = readLine("Enter a number\n").toInt
+        var result: Int = 0
+        var num2 = num
+
+        while (num != 0){
+            var d = num % 10
+            result += d * d * d
+            num = num / 10
+        }
+
+        if (result == num2){
+            printf("%s is an Armstrong number\n", num2)
+        }
+        else{
+            printf("%s is not an Armstrong number\n", num2)
+        }
+    }
+}
+
+
+#calculator
+package Set3
+import scala.io.StdIn.readLine
+import scala.util.control.Breaks._
+
+object Calculator {
+
+    def calculate(c: Int, x1: Double,x2: Double): Double={
+        if (c == 1){
+          return x1 + x2
+        }
+        else if (c == 2){
+          return x1 - x2
+        }
+        else if (c == 3){
+          return x1 * x2
+        }
+        else if (c == 4){
+          return x1 / x2
+        }
+        else {
+          println("Invalid choice\n")
+          break
+        }
+    }
+
+    def main(args: Array[String])={
+        var choice: Int = readLine("1. Add\n2. Subtract\n3. Product\n4. Division\n").toInt
+        var num1: Double = readLine("Enter number 1\n").toDouble
+        var num2: Double = readLine("Enter number 2\n").toDouble
+        println(calculate(choice, num1, num2))
+    }
+
+}
+
+
+# compound Interest
+package Set3
+import scala.io.StdIn.readLine
+import scala.math.pow
+
+object CompundInterest {
+
+    def main(args: Array[String]): Unit ={
+        var amount: Int = readLine("Enter amount\n").toInt
+        var rateOfInterest: Double = readLine("Enter Rate of Interest\n").toDouble/100
+        var period: Int = readLine("Enter period\n").toInt
+        var n: Int = readLine("Enter number of times that interest is compounded per unit t\n").toInt
+        var compundInterest = amount * pow(1 + (rateOfInterest/n), n*period)
+        printf("Compound Interest on %d with rate of interest %f for period of %d with number of time interest compunded per unit t = %d is %f", amount, rateOfInterest, period, n, compundInterest)
+    }
+
+}
+
+
+
+# fibonnaci
+package Set3
+import scala.io.StdIn.readLine
+
+object Fibonnaci {
+
+    def main(args: Array[String])={
+
+        var n: Int = readLine("Enter n\n").toInt
+        var a = 0
+        var b = 1
+        var c = 0
+        var sum = 0
+
+        for (i <- 1 to n){
+            println(c)
+            a = b
+            b = c
+            c = a + b
+            if (c % 2 == 0) {
+              sum += c
+            }
+        }
+        printf("Sum of even Fibonnaci series till %d numbers is %d", n, sum)
+    }
+}
+
+
+# GCD
+package Set3
+import scala.io.StdIn.readLine
+import scala.util.control.Breaks._
+
+object GCD {
+
+  def main(args: Array[String]): Unit ={
+
+    var num1: Int = readLine("Enter number 1\n").toInt
+    var num2: Int = readLine("Enter number 2\n").toInt
+    var large = 0
+    var small = 0
+
+    if (num1 > num2){
+      large = num1
+      small = num2
+    }
+    else{
+      large = num2
+      small = num1
+    }
+
+    for (i<- small-1 to 0 by -1){
+        if (num1 % i == 0 && num2 % i == 0){
+            printf("GCD = %d\n", i)
+            break
+        }
+    }
+
+  }
+
+}
+
+
+
+# largest
+package Set3
+import scala.io.StdIn.readLine
+
+object Largest {
+
+    def main(args: Array[String])={
+
+        var num1: Int = readLine("Enter number 1\n").toInt
+        var num2: Int = readLine("Enter number 2\n").toInt
+
+        if (num1 > num2){
+            printf("%d is greater than %d", num1, num2)
+        }
+        else if (num2 > num1){
+            printf("%d is greater than %d", num2, num1)
+        }
+        else{
+            println("Both are equal")
+        }
+    }
+}
+
+
+# LCM
+package Set3
+import scala.io.StdIn.readLine
+import scala.util.control.Breaks._
+
+object LCM {
+
+    def main(args: Array[String]): Unit ={
+
+        var num1: Int = readLine("Enter number 1\n").toInt
+        var num2: Int = readLine("Enter number 2\n").toInt
+        var large = 0
+        var small = 0
+
+        if (num1 > num2){
+            large = num1
+            small = num2
+        }
+        else{
+            large = num2
+            small = num1
+        }
+
+        while (true){
+            if (large % num1 == 0 && large % num2 == 0){
+                printf("LCM = %d\n", large)
+                break
+            }
+            large += 1
+        }
+
+    }
+
+}
+
+# leap year
+package Set3
+import scala.io.StdIn.readLine
+
+object LeapYear {
+
+    def main(args: Array[String]): Unit ={
+        var year: Int = readLine("Enter year\n").toInt
+
+        if (year % 4 == 0){
+            if (year % 100 == 0){
+                if (year % 400 == 0){
+                    printf("%d is Leap Year", year)
+                }
+                else{
+                    printf("%d is not a Leap Year", year)
+                }
+            }
+            else{
+                printf("%d is Leap Year", year)
+            }
+        }
+        else{
+            printf("%d is not a Leap Year", year)
+        }
+    }
+
+}
+
+
+# palindrome
+package Set3
+import scala.io.StdIn.readLine
+
+object Palindrome {
+
+    def main(args: Array[String])={
+
+        var num: Int = readLine("Enter number\n").toInt
+        var remainder: Int = 0
+        var num2 = num
+        var reverse: Int = 0
+
+        while (num != 0){
+            remainder = num % 10
+            reverse = (reverse * 10) + remainder
+            num = num / 10
+        }
+
+        if (reverse == num2){
+            printf("%d is palindrome", num2)
+        }
+        else{
+            printf("%d is not palindrome", num2)
+        }
+    }
+
+}
+
+
+# perimeter rectangle
+package Set3
+import scala.io.StdIn.readLine
+
+object PerimeterRectangle {
+
+    def main(args: Array[String])={
+
+        var length: Int = readLine("Enter length of rectangle\n").toInt
+        var breadth: Int = readLine("Enter breadth of rectangle\n").toInt
+
+        var perimeter: Int = 2 * (length + breadth)
+        printf("Perimeter of Rectangle with length %d and breadth %d is %d", length, breadth, perimeter)
+
+    }
+
+}
+
+
+# positive negative
+package Set3
+
+import scala.io.StdIn.readLine
+
+object PosOrNeg {
+
+    def main(args: Array[String])={
+
+        var num1: Int = readLine("Enter number 1\n").toInt
+
+        if (num1 > 0){
+            printf("%d is Positive", num1)
+        }
+        else if (num1 < 0){
+            printf("%d is Negative", num1)
+        }
+        else{
+            printf("Entered number is Zero")
+        }
+    }
+}
+
+
+
+# simple interest
+package Set3
+import scala.io.StdIn.readLine
+
+object SimpleInterest {
+
+    def main(args: Array[String]): Unit ={
+        var amount: Int = readLine("Enter amount\n").toInt
+        var rateOfInterest: Double = readLine("Enter Rate of Interest\n").toDouble
+        var period: Int = readLine("Enter period\n").toInt
+        var simpleInterest = (amount * rateOfInterest * period) / 100
+        printf("Simple Interest on %d with rate of interest %f for period of %d is %f", amount, rateOfInterest, period, simpleInterest)
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+######### Using Functions ################
+
+
+#area
+package functions
+import scala.io.StdIn.readLine
+
+object Area {
+
+    def circle(r: Double): Double={
+
+        return 3.14 * r * r
+    }
+
+    def square(l: Int): Int={
+
+        return l * l
+    }
+
+    def main(args: Array[String])={
+
+        var radius = readLine("Enter radius\n").toDouble
+        var length = readLine("Enter length of square\n").toInt
+        printf("Area of circle with radius %f is %f\n", radius, circle(radius))
+        printf("Area of square with length %d is %d\n", length, square(length))
+    }
+
+}
+
+
+#calculator
+package functions
+import scala.io.StdIn.readLine
+import scala.util.control.Breaks._
+
+object Calculator {
+
+    def calculate(c: Int, x1: Double,x2: Double): Double={
+        if (c == 1){
+            return x1 + x2
+        }
+        else if (c == 2){
+            return x1 - x2
+        }
+        else if (c == 3){
+            return x1 * x2
+        }
+        else if (c == 4){
+            return x1 / x2
+        }
+        else {
+           println("Invalid choice\n")
+           break
+        }
+    }
+
+    def main(args: Array[String])={
+        var choice: Int = readLine("1. Add\n2. Subtract\n3. Product\n4. Division\n").toInt
+        var num1: Double = readLine("Enter number 1\n").toDouble
+        var num2: Double = readLine("Enter number 2\n").toDouble
+        println(calculate(choice, num1, num2))
+    }
+
+}
+
+
+# cal 2
+package functions
+
+object Calculator2 {
+
+    def calculate(x1: Int, x2: Int)={
+        printf("%d + %d = %d", x1, x2, x1+x2)
+        printf("%d - %d = %d", x1, x2, x1-x2)
+        printf("%d * %d = %d", x1, x2, x1*x2)
+        printf("%d / %d = %f", x1, x2, x1/x2)
+    }
+    
+    def main(args: Array[String])={
+
+        var num1: Int = args(1).toInt
+        var num2: Int = args(2).toInt
+        calculate(num1, num2)
+    }
+}
+
+
+# even odd
+package functions
+import scala.io.StdIn.readLine
+
+object EvenOdd {
+
+    def iseven(x: Int): Int={
+        if (x % 2 == 0){
+            return 1
+        }
+        else{
+            return 0
+        }
+    }
+
+    def main(args: Array[String])={
+
+        var num: Int = readLine("Enter a number\n").toInt
+        if (iseven(num) == 1){
+            printf("%d is Even", num)
+        }
+        else{
+            printf("%d is Odd", num)
+        }
+    }
+}
+
+
+#fact
+package functions
+import scala.io.StdIn.readLine
+
+object Factorial {
+
+    def fact(x: Int): Int={
+        var result: Int = 1
+        for (i <- 1 to x){
+            result *= i
+        }
+        return result
+    }
+
+    def main(args: Array[String])={
+        var num: Int = readLine("Enter a number\n").toInt
+        printf("Factorial of %d is %d", num, fact(num))
+    }
+}
+
+
+#pattern
+package functions
+import scala.io.StdIn.readLine
+
+object Pattern {
+
+    def print_pattern(l: Int)={
+        for (i <- 1 to l){
+            for (j <- 1 to i){
+                printf("* ")
+            }
+            println()
+        }
+    }
+
+    def main(args: Array[String])={
+
+        var lines: Int = readLine("Enter number of Lines\n").toInt
+        print_pattern(lines)
+    }
+
+}
+
+
+# prime
+package functions
+import scala.io.StdIn.readLine
+
+object Prime {
+
+    def isPrime(x: Int): Int ={
+        for (i<- 2 to x/2){
+            if (x % i == 0){
+                return 0
+            }
+        }
+        return 1
+    }
+
+    def main(args: Array[String])={
+
+        var num = readLine("Enter number to check if it is Prime or not\n").toInt
+        if (isPrime(num) == 1){
+            printf("%d is Prime", num)
+        }
+        else{
+            printf("%d is not Prime", num)
+        }
+    }
+
+}
+
+
+# vowel count
+package functions
+import scala.io.StdIn.readLine
+
+object VowelCount {
+    def count(s1: String): Int={
+        var vowel_count: Int = 0
+        for (i <- s1){
+            if (i == 'A' || i == 'a' || i == 'E' || i == 'e' || i == 'I' || i == 'i' || i == 'O' || i == 'o' || i == 'U' || i == 'u') {
+              vowel_count += 1
+            }
+        }
+        return vowel_count
+    }
+
+    def main(args: Array[String])={
+
+        var word: String = readLine("Enter a word to count vowels\n")
+        printf("Number of vowels in '%s' are %d", word, count(word))
+    }
+}
